@@ -1,5 +1,5 @@
 #QMAKE_RULES = noftdi
-QMAKE_PC = /mnt/qt-4.7.4/bin/qmake
+QMAKE_PC = /mnt/qt-5.15.2/bin/qmake
 QMAKE_WM8650 = ../buildroot-cs/output/host/usr/bin/qmake
 QMAKE_WIN32 = qmake -spec win32-g++-cross
 
@@ -24,7 +24,7 @@ win32/Makefile: hiscanemu.pro Makefile
 	sed -i 's,/usr/lib64,/usr/i686-pc-mingw32/sys-root/mingw/lib,g' win32/Makefile*
 	sed -i 's,i686-pc-mingw32-moc,moc,g' win32/Makefile*
 	sed -i 's,-lQt\([A-Za-z]*\)d,-lQt\1d4,g' win32/Makefile*
-	sed -i 's,-lQt\([A-Za-z]*\)\([^A-Za-z0-9]\),-lQt\14\2,g' win32/Makefile*
+	sed -i 's,-lQt\([A-Za-z]*\)\([^A-Za-z0-9\]),-lQt\14\2,g' win32/Makefile*
 
 clean:
 	for i in $(SUBDIRS) ; do $(MAKE) -C $$i clean ; done
